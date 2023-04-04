@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const Counter = ({ count, setCount }) => {
   const onClickAdd = () => {
     setCount(count + 1);
   };
+
+  // 값을 기억하고 싶으면 부모 컴포넌트에 setCount를 하면된다
 
   useEffect(() => {
     console.log("Counter 컴포넌트가 생성된 상태입니다.");
@@ -17,8 +19,10 @@ const Counter = ({ count, setCount }) => {
     };
   }, [count]);
 
+  // 18 [count]에 아무 값도 입력하지 않으면 실행이 되지 않는다.
+
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="border-8 border-rose-400 p-4 flex flex-col justify-center items-center">
       <div className="text-center text-4xl">{count}</div>
       <button
         onClick={onClickAdd}
